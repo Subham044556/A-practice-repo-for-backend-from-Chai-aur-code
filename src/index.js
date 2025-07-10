@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
+import { app } from "./app.js";
 
-import connectDB from "./db/windex.js";
+import connectDB from "./db/index.js";
 // database se kabhi bhi app baat karne ki koshish kre tohh try and catch lo yaa phir promise use karo 
 // dusri baat database hamesha dusri continent me rehta he
 //using iife
@@ -12,9 +13,9 @@ dotenv.config({
 
 connectDB()
 .then(() =>{
-    app.listen(process.env.PORT || 8000),() =>{
+    app.listen(process.env.PORT || 8000,() =>{
         console.log(`Server is running at port: ${process.env.PORT}`);
-    } // best practice to give default 8000,
+    }) // best practice to give default 8000,
 })
 .catch((err) =>{
     console.log("MONGODB connection failed");
