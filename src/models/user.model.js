@@ -50,7 +50,7 @@ const userSchema = new Schema({
 
 userSchema.pre("save",async function (next) {
     if(!this.isModified("password")) return ;
-    this.password = bcrypt.hash(this.password,10)
+    this.password = await bcrypt.hash(this.password,10)
     next()
 }) // yahan pe jab bhi function likhte ho to context important he isliye  () => {} likhna risky he
 
