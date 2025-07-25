@@ -26,7 +26,6 @@ const userSchema = new Schema({
     },
     avatar:{
         type:String, // cloudinary ka url use karenge
-        required: true,
     },
     coverImage:{
         type:String, // cloudinary ka url use karenge
@@ -72,7 +71,7 @@ userSchema.methods.generateAccessToken = function(){
         }
     )
 }
-userSchema.methods.generateRefershToken = function(
+userSchema.methods.generateRefreshToken = function(
 ){
     return jwt.sign(
         {
